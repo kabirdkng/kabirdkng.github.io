@@ -19,8 +19,8 @@ h1{
   text-wrap: wrap;
 }
 @media (max-width=415px){
-  h1 { width: 100vw ; height: 7rem}
-  box { width: 100vw ; heigth: calc(100vh - 7rem)}
+  h1 { width: 100vw ; height: 3rem}
+  box { width: 100vw ; heigth: calc(100vh - 3rem)}
 }
 .box {
   padding: 2rem 1rem;
