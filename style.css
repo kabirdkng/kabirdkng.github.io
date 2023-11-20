@@ -23,8 +23,6 @@ h1{
   box { width: 100vw ; heigth: calc(100vh - 7rem)}
 }
 .box {
-  width: 95vw;
-  max-width: 440px;
   padding: 2rem 1rem;
   border-radius: 1rem;
   height : auto;
