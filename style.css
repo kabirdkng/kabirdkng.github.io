@@ -18,6 +18,10 @@ h1{
   color: var(--color2);
   text-wrap: wrap;
 }
+@media (max-width=415px){
+  h1 { width: 100vw ; height: 7rem}
+  box { width: 100vw ; heigth: calc(100vh - 7rem)}
+}
 .box {
   width: 95vw;
   max-width: 440px;
@@ -50,3 +54,4 @@ h1{
   color: var(--color2);
   border-radius: 0.5rem;
 }
+
