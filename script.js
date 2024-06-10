@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "https://esm.sh/react";
 import ReactDOM from "https://esm.sh/react-dom";
-import axios from "axios";
 
 const QuoteBox = () => {
   const [quote, setQuote] = useState('');
@@ -10,19 +9,21 @@ const QuoteBox = () => {
     const ayat = Math.floor(Math.random() * 6666 + 1);
     return ayat;
   };
-  const fetchQuote = async () => {
-    await axios.
-    get(`https://api.alquran.cloud/v1/ayah/${ayatNumber()}/en.asad`).
-    then(response => {
-      const { text, surah, numberInSurah } = response.data.data;
-      console.log(surah.englishName);
-      setQuote(text);
-      setRefference(surah.englishName + " " + surah.englishNameTranslation + " " + surah.number + ":" + numberInSurah);
-    }).
-    catch(error => {
-      console.log(error);
-    });
-  };
+  
+const fetchQuote = async () => {
+  try {
+    const response = await fetch(`https://api.alquran.cloud/v1/ayah/${ayatNumber()}/en.asad`);
+    if (!response.ok) {
+      throw new Error(`HTTP error status: ${response.status}`);
+    }
+    const { text, surah, numberInSurah } = await response.json();
+    console.log(surah.englishName);
+    setQuote(text);
+    setRefference(surah.englishName + " " + surah.englishNameTranslation + " " + surah.number + ":" + numberInSurah);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   useEffect(() => {
     fetchQuote();
