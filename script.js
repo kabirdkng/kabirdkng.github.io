@@ -11,19 +11,18 @@ const QuoteBox = () => {
   };
   
 const fetchQuote = async () => {
-  try {
-    const response = await fetch(`https://api.alquran.cloud/v1/ayah/${ayatNumber()}/en.asad`);
-    if (!response.ok) {
-      throw new Error(`HTTP error status: ${response.status}`);
-    }
-    const { text, surah, numberInSurah } = await response.json();
-    console.log(surah.englishName);
-    setQuote(text);
-    setRefference(surah.englishName + " " + surah.englishNameTranslation + " " + surah.number + ":" + numberInSurah);
-  } catch (error) {
-    console.log(error);
-  }
-};
+    await fetch(`https://api.alquran.cloud/v1/ayah/${ayatNumber()}/en.asad`).
+    then(response => {
+      const { text, surah, numberInSurah } = response.data.data;
+      console.log(surah.englishName);
+      setQuote(text);
+      setRefference(surah.englishName + " " + surah.englishNameTranslation + " " + surah.number + ":" + numberInSurah);
+    }).
+    catch(error => {
+      console.log(error);
+    });
+  };
+
 
   useEffect(() => {
     fetchQuote();
