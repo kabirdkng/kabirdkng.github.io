@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "https://esm.sh/react";
 import ReactDOM from "https://esm.sh/react-dom";
-import axios from "https://esm.sh/axios";
+import axios from "axios";
 
 const QuoteBox = () => {
   const [quote, setQuote] = useState('');
