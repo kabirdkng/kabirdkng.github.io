@@ -17,7 +17,6 @@ const QuoteBox = () => {
         throw new Error(`HTTP error status: ${response.status}`);
       }
       const { text, surah, numberInSurah } = await response.json();
-      console.log(surah.englishName);
       setQuote(text);
       setRefference(surah.englishName + " " + surah.englishNameTranslation + " " + surah.number + ":" + numberInSurah);
     } catch (error) {
@@ -64,4 +63,6 @@ const App = () => (
   </div>
 );
 
-ReactDOM.render(<App />, document.querySelector('#app'));
+document.addEventListener("DOMContentLoaded", function() {
+  ReactDOM.render(<App />, document.querySelector('#app'));
+});
