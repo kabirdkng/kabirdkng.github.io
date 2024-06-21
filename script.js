@@ -1,5 +1,5 @@
-import * as React from 'https://esm.sh/react';
-import * as ReactDOM from 'https://esm.sh/react-dom';
+import React from 'https://esm.sh/react';
+import ReactDOM from 'https://esm.sh/react-dom';
 
 const ayatNumber = () => {
   const ayat = Math.floor(Math.random() * 6236 + 1);
