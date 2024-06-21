@@ -1,3 +1,4 @@
-import { App } from './components.js';
+const components = {};
+eval(document.getElementById('components').textContent);
 
-ReactDOM.render(<App />, document.querySelector('#app'));
+ReactDOM.render(<components.App />, document.querySelector('#app'));
