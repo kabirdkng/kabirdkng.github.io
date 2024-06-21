@@ -1,4 +1,4 @@
-import * as React from 'https://esm.sh/react';
+import * as React, {useState, useEffect} from 'https://esm.sh/react';
 import * as ReactDOM from 'https://esm.sh/react-dom';
 
 const ayatNumber = () => {
